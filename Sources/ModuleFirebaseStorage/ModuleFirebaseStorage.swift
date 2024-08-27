@@ -24,7 +24,7 @@ public enum ModuleFirebaseStorage {
      */
     public static func synchronizeFile(reference:StorageReference,
                                  maxSize: Int64 = 50 * 1024 * 1024,
-                                 onComplete:((URL) -> Void)?
+                                 onComplete:((URL) -> Void)? = nil
     ){
         
     }
@@ -34,7 +34,8 @@ public enum ModuleFirebaseStorage {
      */
     private static func unzipFile(data:Data, 
                                   reference:StorageReference,
-                                  onComplete:((URL) -> Void)?){
+                                  onComplete:((URL) -> Void)? = nil
+    ){
         /**
          File Manager
          */
