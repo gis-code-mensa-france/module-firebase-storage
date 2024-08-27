@@ -1,8 +1,11 @@
 import FirebaseStorage
 
+@available(iOS 15.0, *)
 public enum ModuleFirebaseStorage {
     public static func helloWorlds(){
-        ModuleFirebaseStorage.listRootFiles()
+        Task {
+            await ModuleFirebaseStorage.listRootFiles()
+        }
     }
     
     private static func listRootFiles() async {
@@ -14,6 +17,8 @@ public enum ModuleFirebaseStorage {
             for item in result.items {
                 print(item)
             }
+        } catch {
+            
         }
     }
 }
