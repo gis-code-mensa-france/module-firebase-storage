@@ -26,7 +26,13 @@ public enum ModuleFirebaseStorage {
                                  maxSize: Int64 = 50 * 1024 * 1024,
                                  onComplete:((URL) -> Void)? = nil
     ){
-        
+        reference.getData(maxSize: maxSize) { data, error in
+            if error == nil {
+                ModuleFirebaseStorage.unzipFile(data: data!, 
+                                                reference: reference,
+                                                onComplete: onComplete)
+            }
+        }
     }
     
     /**
