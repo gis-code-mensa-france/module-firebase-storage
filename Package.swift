@@ -13,6 +13,7 @@ let package = Package(
     ],
     dependencies: [
            .package(url: "https://github.com/firebase/firebase-ios-sdk.git",  from: "11.1.0"),
+           .package(url: "https://github.com/weichsel/ZIPFoundation", from: "0.9.19")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -20,7 +21,8 @@ let package = Package(
         .target(
             name: "ModuleFirebaseStorage",
             dependencies: [
-                .product(name: "FirebaseStorage", package: "firebase-ios-sdk")
+                .product(name: "FirebaseStorage", package: "firebase-ios-sdk"),
+                .product(name: "ZIPFoundation", package: "zipfoundation")
             ]
         ),
         .testTarget(
